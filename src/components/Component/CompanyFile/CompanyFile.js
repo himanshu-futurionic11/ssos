@@ -1,29 +1,25 @@
 import axios from 'axios'
 import { Table } from 'flowbite-react'
 import React, { useEffect, useState } from 'react'
-import FileUpload from '../../Form/FileUpload/FileUpload'
+
 import Filtering from '../Filtering/Filtering'
 
-const CompanyFile = () => {
-    const url = 'http://127.0.0.1:5500/filedata.json';
-    const [searchLocation, setSearchLocation] = useState("");
-    const [searchYear, setSearchYear] = useState("");
-    const [searchMonth, setSearchMonth] = useState("");
-    const [searchFileType, setSearchFileType] = useState("");
+const CompanyFile = ({location}) => {
+    const url = 'http://localhost:8900';
     const [monthName, setMonthName] = useState(["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]);
     const [data, setdata] = useState([]);
   useEffect(() => {
     const fetching=async()=>{
         
-        const {data} = await axios.get(`${url}/file`)
+        const {data} = await axios.get(`${url}/file?location=${location}`)
         setdata(data);
         
       }
       
         fetching(); 
       
-  }, [])
-  const handleSearch=async(month,year,location,fileType)=>{
+  }, [location])
+  const handleSearch=async(month,year,fileType)=>{
     console.log(month,year,location,fileType);
     if (month!=="") {
         if (year!=="") {
@@ -154,7 +150,7 @@ const CompanyFile = () => {
             ))}  
         </Table.Body>
         </Table>
-        <FileUpload />
+        
     </div>
   )
 }

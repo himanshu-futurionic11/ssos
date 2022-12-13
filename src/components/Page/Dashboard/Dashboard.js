@@ -1,14 +1,16 @@
-import { Navbar, Sidebar } from 'flowbite-react';
+import { Label, Navbar, Sidebar } from 'flowbite-react';
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ClientDetail from '../../Component/ClientDetail/ClientDetail';
 import CompanyFile from '../../Component/CompanyFile/CompanyFile';
 import SideBar from '../../Component/SideBar/SideBar';
+import FileUpload from '../../Form/FileUpload/FileUpload';
 
 const Dashboard = () => {
   const isLogged=useSelector(state=>state.auth.isLogged)
   const [select, setSelect ] = useState(false);
+  const [location, setLocation] = useState("");
   return (
     <div className='flex gap-4'>
       <SideBar setSelect={setSelect}/>
@@ -25,9 +27,23 @@ const Dashboard = () => {
     </Navbar>
    
      </div>
-      
-      <ClientDetail/>
-      <CompanyFile/>
+        <div className='mb-5'>
+        <select
+            id="underline_select"
+            value={location}
+            onChange={(e)=>{setLocation(e.target.value)}}
+            className=" py-2.5  w-auto  text-md  bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0  peer"
+          >
+            <option value="" selected>Location</option>
+            <option  value="Hyderabad">Hyderabad</option>
+            <option  value="Delhi">Delhi</option>
+          </select>
+        </div>
+          
+          
+      <ClientDetail location={location} />
+      <CompanyFile location={location}/>
+      <FileUpload />
       </div>
     </div>
   )

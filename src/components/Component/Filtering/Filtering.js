@@ -7,11 +7,11 @@ const Filtering = ({handleSearch}) => {
   const [searchYear, setSearchYear] = useState("");
   const [searchMonth, setSearchMonth] = useState("");
   const [month, setMonth] = useState(new Date());
-  const [location, setLocation] = useState("");
+  
   const [fileType, setFileType] = useState("");
   const handleSubmit=(e)=>{
     
-    handleSearch(searchMonth,searchYear,location,fileType)
+    handleSearch(searchMonth,searchYear,fileType)
   }
     
   return (
@@ -19,20 +19,9 @@ const Filtering = ({handleSearch}) => {
     >
       <div className=" grid grid-cols-5 gap-4 place-items-center mt-10 mb-10">
         
-          <Label className="flex items-center gap-1">
+      <Label className="flex items-center gap-1">
             <span className="text-sm whitespace-nowrap">Filter by :</span>
-
-              <select
-                id="underline_select"
-                value={location}
-                onChange={(e)=>{setLocation(e.target.value)}}
-                className=" py-2.5  w-full  text-md  bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0  peer"
-              >
-                <option value="" selected>Location</option>
-                <option  value="Hyderabad">Hyderabad</option>
-                <option  value="Delhi">Delhi</option>
-              </select>
-          </Label>
+            </Label>
           <div>
           <ReactDatePicker
             selected={month}

@@ -1,8 +1,9 @@
 import { Table } from 'flowbite-react'
 import React from 'react'
-import { rowData } from '../../../Utils/mockData'
+import { delhiRowData,hyderabadRowData } from "../../../Utils/mockData";
 
-const ClientDetail = () => {
+
+const ClientDetail = ({location}) => {
   return (
     <div>
         <Table striped={true} className='border-2 mb-20' >
@@ -15,7 +16,17 @@ const ClientDetail = () => {
                 </Table.HeadCell>
             </Table.Head>
         <Table.Body className="divide-y">
-            {rowData.map(({id,heading,detail})=>(
+            {(location==="Delhi") && delhiRowData.map(({id,heading,detail})=>(
+                <Table.Row id={id} className="bg-white dark:border-gray-700 dark:bg-gray-800">
+                 <Table.Cell id={id} className="whitespace-nowrap border-r-2 font-medium text-gray-900 dark:text-white">
+                     {heading}
+                 </Table.Cell>
+                 <Table.Cell id={id}>
+                     {detail}
+                 </Table.Cell>
+                </Table.Row>
+            ))}  
+            {(location==="Hyderabad") && hyderabadRowData.map(({id,heading,detail})=>(
                 <Table.Row id={id} className="bg-white dark:border-gray-700 dark:bg-gray-800">
                  <Table.Cell id={id} className="whitespace-nowrap border-r-2 font-medium text-gray-900 dark:text-white">
                      {heading}

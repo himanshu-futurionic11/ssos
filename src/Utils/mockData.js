@@ -122,7 +122,7 @@ export const clientData=[
     imsrc:'https://media.glassdoor.com/sqll/12167/teoco-squarelogo-1389051005880.png'
   },
 ]
-export const rowData=[
+export const delhiRowData=[
   {
     id:1,
     heading:'Name/address of Website',
@@ -141,7 +141,119 @@ export const rowData=[
   {
     id:4,
     heading:'Address of the Establishment / Branch Office where contract workers are to be engaged',
-    detail:('GUARDIAN INDIA OPERATIONS PRIVATE LIMITED \n 07th,8th & 9th Floor, in Tower 1,IT/ITES, SEZ Complex,Candor Infospace, Tikri, Sector-48'),
+    detail:('cars24 plus-Metro Walk,Rohini Delh '),
+  },
+  {
+    id:5,
+    heading:'Nature of work for which Contract Workmen are to be employed',
+    detail:'Manpower Outsource',
+  },
+  {
+    id:6,
+    heading:'Name of the Proprietor / Partner/ Director / Managing Director',
+    detail:'Mr. Ram Niwas Yadav',
+  },
+  {
+    id:7,
+    heading:'Date of starting of Business',
+    detail:'01/07/2013',
+  },
+  {
+    id:8,
+    heading:'Date of Initial agreement with the Principal Employer ( working since with PE )',
+    detail:'11/09/2020',
+  },
+  {
+    id:9,
+    heading:'Mobile No. of PE / Contractor',
+    detail:9999639635,
+  },
+  {
+    id:10,
+    heading:'E-mail ID of PE / Contractor',
+    detail:<Link className='text-teal-600'>rn@ssos.co.in</Link>,
+  },
+  {
+    id:11,
+    heading:'Website Address of Contractor\'s establishment',
+    detail:(<Link className='text-teal-600' to='#'>www.ssos.co.in</Link>),
+  },
+  {
+    id:12,
+    heading:'Registration Certificate No. of PE / Contractor Labour License No. and valid up to',
+    detail:<Link className='text-teal-600'>PSA/REG/GGN/DIC-GGN-I/0011775   View PDF</Link>,
+  },
+  {
+    id:13,
+    heading:'Registration No. under the Registration Act, 1908',
+    detail:<Link className='text-teal-600'>N/A   View PDF</Link>,
+  },
+  {
+    id:14,
+    heading:'Registration No. under Partnership Act, 1932',
+    detail:<Link className='text-teal-600'>N/A   View PDF</Link>,
+  },
+  {
+    id:15,
+    heading:'Registration No. under the Companies Act, 1956',
+    detail:<Link className='text-teal-600'>N/A   View PDF</Link>,
+  },
+  {
+    id:16,
+    heading:'Registration No. under the Delhi Shop & Establishment Act, 1954',
+    detail:<Link className='text-teal-600'>PSA/REG/GGN/LI-GGN-3-7/0171010  View PDF</Link>,
+  },
+  {
+    id:17,
+    heading:'Registration No. under the Factofories Act ( for PE)',
+    detail:<Link className='text-teal-600'>N/A   View PDF</Link>,
+  },
+  {
+    id:18,
+    heading:'Registration No. or Employes ESIC Act, 1948',
+    detail:<Link className='text-teal-600'>69000530840001001  View PDF</Link>,
+  },
+  {
+    id:19,
+    heading:'Registration No. EPF and Misc. Provisions Act, 1952',
+    detail:<Link className='text-teal-600'>GNGGN0033453000  View PDF</Link>,
+  },
+  {
+    id:20,
+    heading:'Service Tax Registration No',
+    detail:<Link className='text-teal-600'>AATCS3238GSD001  View PDF</Link>,
+  },
+  {
+    id:21,
+    heading:'Sale Tax Registration No.  ',
+    detail:<Link className='text-teal-600'>06551950852  View PDF</Link>,
+  },
+  {
+    id:22,
+    heading:'PAN Card No.',
+    detail:<Link className='text-teal-600'>AATCS3238G  View PDF</Link>,
+  },
+]
+export const hyderabadRowData=[
+  {
+    id:1,
+    heading:'Name/address of Website',
+    detail:(<Link className='text-teal-600' to='#'>www.ssos.co.in</Link>),
+  },
+  {
+    id:2,
+    heading:'Name of the Establishment',
+    detail:'Shining Star Outsource Services Private Limited',
+  },
+  {
+    id:3,
+    heading:'Address of the Establishment ( Registered Office )',
+    detail:'5th Floor SCO 61, Old Judicial Complex, Sector 15 Gurugram, Haryana, India, PIN - 122001',
+  },
+  {
+    id:4,
+    heading:'Address of the Establishment / Branch Office where contract workers are to be engaged',
+    detail:('Cars24 - Sy. No-165, Upperpally Village, RR Nagar, Municipality District, RR District Telangana 500048'),
   },
   {
     id:5,
