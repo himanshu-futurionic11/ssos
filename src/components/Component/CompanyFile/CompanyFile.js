@@ -5,7 +5,7 @@ import FileUpload from '../../Form/FileUpload/FileUpload'
 import Filtering from '../Filtering/Filtering'
 
 const CompanyFile = () => {
-    const url = 'http://localhost:8900';
+    const url = 'http://127.0.0.1:5500/filedata.json';
     const [searchLocation, setSearchLocation] = useState("");
     const [searchYear, setSearchYear] = useState("");
     const [searchMonth, setSearchMonth] = useState("");

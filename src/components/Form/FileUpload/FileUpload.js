@@ -40,7 +40,7 @@ const FileUpload = () => {
         file.name
       );
       console.log(formData.entries().next().value[1].name);
-      const url = 'http://localhost:8900';
+      const url = 'http://127.0.0.1:5500/filedata.json';
       const config = {
         headers: {
           'content-type': 'multipart/form-data',
