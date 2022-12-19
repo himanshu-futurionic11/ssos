@@ -25,18 +25,18 @@ const Login = () => {
     >
       {({ handleSubmit, isSubmitting }) => (
         
-      <div className='px-80'>
-          <div className=" items-center  mt-20 mx-80  bg-gray-50 dark:bg-gray-900">
+      <div className='flex items-center justify-center  '>
+          <div className="max-w-2xl mt-40 bg-gray-50 dark:bg-gray-900">
           <div className=" h-full  mx-auto overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800">
             <div className=" overflow-y-auto md:flex-row">
-              <main className="items-center justify-center  sm:py-20">
+              <main className="sm:py-5">
                 <form
                   className="w-full"
                   autoComplete="off"
                   onSubmit={handleSubmit}   
                 >
                     <div style={{backgroundImage:'url(https://www.aaawindows4less.com/wp-content/uploads/2016/11/stormy-windows-wide.jpg)'}}
-                    className='h-40 pt-12'
+                    className='h-40 flex items-center justify-center'
                     >
                         <h1   className="mb-4 text-xl text-center font-semibold text-white dark:text-gray-200 ">
                            <span className='text-green-400'>Sign In For</span>  Compliance Data

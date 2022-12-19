@@ -1,5 +1,5 @@
 {
-  "name": "fliqaindia",
+  "name": "ssos",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.2.0",
     "daisyui": "^2.38.1",
+    "firebase": "^9.15.0",
     "flowbite": "^1.5.3",
     "flowbite-react": "^0.3.4",
     "formik": "^2.2.9",

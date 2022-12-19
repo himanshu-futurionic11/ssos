@@ -4,6 +4,7 @@ import { Formik } from 'formik';
 import React, { useState } from 'react'
 import ReactDatePicker from 'react-datepicker';
 import Dropzone from 'react-dropzone';
+import storage from '../../../Utils/firebase.init';
 import { initialValues } from './const';
 
 const FileUpload = () => {
@@ -14,6 +15,7 @@ const FileUpload = () => {
     const [name, setName] = useState("");
     const [monthName, setMonthName] = useState(new Date());
     const [file, setFile] = useState();
+    const [url, setUrl] = useState("");
     const formData=new FormData()
     // const handleDrop= (acceptedFiles) => {
     //   console.log(acceptedFiles[0].type);
@@ -34,25 +36,34 @@ const FileUpload = () => {
     }
 
     const handleSubmit=async()=>{
-      formData.append(
-        "file",
-        file,
-        file.name
-      );
-      console.log(formData.entries().next().value[1].name);
-      const url = 'http://localhost:8900';
-      const config = {
-        headers: {
-          'content-type': 'multipart/form-data',
-        },
-      };
+    //   formData.append(
+    //     "file",
+    //     file,
+    //     file.name
+    //   );
+    //   console.log(formData.entries().next().value[1].name);
+    //   const url = 'http://localhost:8900';
+    //   const config = {
+    //     headers: {
+    //       'content-type': 'multipart/form-data',
+    //     },
+    //   };
       
-     axios.post(
-        `${url}/file`,{formData,year:yearName.getFullYear(),fileType,name,month:monthName.getMonth(),location}).then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
+    //  axios.post(
+    //     `${url}/file`,{formData,year:yearName.getFullYear(),fileType,name,month:monthName.getMonth(),location}).then((res) => {
+    //     console.log(res);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+    storage.ref(`/images/${file.name}`).put(file)
+      .on("state_changed", alert("success"), alert, () => {
+  
+        // Getting Download Link
+        storage.ref("files").child(file.name).getDownloadURL()
+          .then((url) => {
+            setUrl(url);
+          })
       });
         
       
@@ -159,6 +170,7 @@ const FileUpload = () => {
               </main>
             </div>
           </div>
+          <p><a href={url}>{url}</a></p>
         </div>
       )}
     </Formik>
