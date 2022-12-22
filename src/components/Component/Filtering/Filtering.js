@@ -4,13 +4,13 @@ import ReactDatePicker from "react-datepicker";
 
 const Filtering = ({handleSearch}) => {
   const [year, setYear] = useState(new Date());
-  const [searchYear, setSearchYear] = useState("");
-  const [searchMonth, setSearchMonth] = useState("");
+  const [searchYear, setSearchYear] = useState(null);
+  const [searchMonth, setSearchMonth] = useState(null);
   const [month, setMonth] = useState(new Date());
   
   const [fileType, setFileType] = useState("");
   const handleSubmit=(e)=>{
-    
+    console.log(searchMonth,searchYear,fileType);
     handleSearch(searchMonth,searchYear,fileType)
   }
     

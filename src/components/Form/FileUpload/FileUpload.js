@@ -3,67 +3,45 @@ import { Button, Label } from 'flowbite-react';
 import { Formik } from 'formik';
 import React, { useState } from 'react'
 import ReactDatePicker from 'react-datepicker';
-import Dropzone from 'react-dropzone';
-import storage from '../../../Utils/firebase.init';
 import { initialValues } from './const';
 
 const FileUpload = () => {
     const [location, setLocation] = useState('');
     const [yearName, setYearName] = useState(new Date());
-    const [date, setDate] = useState(new Date());
     const [fileType, setFileType] = useState("");
     const [name, setName] = useState("");
     const [monthName, setMonthName] = useState(new Date());
     const [file, setFile] = useState();
-    const [url, setUrl] = useState("");
     const formData=new FormData()
-    // const handleDrop= (acceptedFiles) => {
-    //   console.log(acceptedFiles[0].type);
-    //   setName(acceptedFiles[0].name)
-    //   formData.append(
-    //     "myFile",
-    //     acceptedFiles[0],
-    //     acceptedFiles[0].name
-    //   );
-    //   console.log(formData.entries().next().value[1].name);
-    // }
-    const handleChange=(e)=>{
-      console.log(e.target.files[0]);
+    const handleChange=async(e)=>{
+      console.log(e.target.files[0].type);
       setName(e.target.files[0].name)
       setFile(e.target.files[0])
       
-          
-    }
+     }
 
     const handleSubmit=async()=>{
-    //   formData.append(
-    //     "file",
-    //     file,
-    //     file.name
-    //   );
-    //   console.log(formData.entries().next().value[1].name);
-    //   const url = 'http://localhost:8900';
-    //   const config = {
-    //     headers: {
-    //       'content-type': 'multipart/form-data',
-    //     },
-    //   };
-      
-    //  axios.post(
-    //     `${url}/file`,{formData,year:yearName.getFullYear(),fileType,name,month:monthName.getMonth(),location}).then((res) => {
-    //     console.log(res);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
-    storage.ref(`/images/${file.name}`).put(file)
-      .on("state_changed", alert("success"), alert, () => {
+      formData.append("file",file);
+      formData.append("location",location);
+      formData.append("fileType",fileType);
+      formData.append("month",monthName.getMonth());
+      formData.append("year",yearName.getFullYear());
+      formData.append("name",name);
+      console.log(formData.entries().next().value[1].name);
   
-        // Getting Download Link
-        storage.ref("files").child(file.name).getDownloadURL()
-          .then((url) => {
-            setUrl(url);
-          })
+      const url = 'http://localhost:8900';
+      const config = {
+        headers: {
+          'content-type': 'multipart/form-data',
+        },
+      };
+      
+     axios.post(
+        `${url}/add-files`,formData).then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
       });
         
       
@@ -72,6 +50,7 @@ const FileUpload = () => {
     <Formik
       onSubmit={handleSubmit}
       initialValues={initialValues}
+      encType='multipart/form-data'
     >
       {({ handleSubmit, isSubmitting }) => (
         
@@ -148,14 +127,6 @@ const FileUpload = () => {
                         </div>
                         <div className="mt-10 text-center pb-10 pt-10 border-2">
                         <input type="file" id="file" name="file" accept="application/*" onChange={handleChange} />
-                          {/* <Dropzone onDrop={handleDrop} accept="application/*">
-                            {({getRootProps, getInputProps}) => (
-                              <div {...getRootProps()}>
-                                <input {...getInputProps()} />
-                                Click me to upload a file!
-                              </div>
-                            )}
-                          </Dropzone> */}
                         </div>
                         
                         <Button
@@ -170,7 +141,6 @@ const FileUpload = () => {
               </main>
             </div>
           </div>
-          <p><a href={url}>{url}</a></p>
         </div>
       )}
     </Formik>

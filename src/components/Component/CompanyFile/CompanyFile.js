@@ -1,6 +1,7 @@
 import axios from 'axios'
-import { Table } from 'flowbite-react'
+import { Button, Table } from 'flowbite-react'
 import React, { useEffect, useState } from 'react'
+import ViewModal from '../../Modal/VeiwModal'
 
 import Filtering from '../Filtering/Filtering'
 
@@ -8,11 +9,15 @@ const CompanyFile = ({location}) => {
     const url = 'http://localhost:8900';
     const [monthName, setMonthName] = useState(["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]);
     const [data, setdata] = useState([]);
+    const [filePath, setFilePath] = useState("");
+    const [open, setOpen] = useState(false);
+    const [fileName, setFileName] = useState("");
   useEffect(() => {
     const fetching=async()=>{
         
-        const {data} = await axios.get(`${url}/file?location=${location}`)
+        const {data} = await axios.get(`${url}/get-filesByLocation?location=${location}`)
         setdata(data);
+        console.log(data);
         
       }
       
@@ -20,93 +25,54 @@ const CompanyFile = ({location}) => {
       
   }, [location])
   const handleSearch=async(month,year,fileType)=>{
-    console.log(month,year,location,fileType);
-    if (month!=="") {
-        if (year!=="") {
-            if (location!=="") {
-                if (fileType!=="") {
-                    const {data} = await axios.get(`${url}/file?month=${month}&year=${year}&location=${location}&fileType=${fileType}`)
+    if (month!==null) {
+        if (year!==null) {
+            if (fileType!=="") {
+                const {data} = await axios.get(`${url}/get-filesBySearch?location=${location}&fileType=${fileType}&year=${year}&month=${month}`)
                     setdata(data);
                 } else {
-                    const {data} = await axios.get(`${url}/file?month=${month}&year=${year}&location=${location}`)
+                    const {data} = await axios.get(`${url}/get-filesByYearMonth?location=${location}&year=${year}&month=${month}`)
                     setdata(data);
                 }
-                
-            } else {
-                if (fileType!=="") {
-                    const {data} = await axios.get(`${url}/file?month=${month}&year=${year}&fileType=${fileType}`)
-                    setdata(data);
-                } else {
-                    const {data} = await axios.get(`${url}/file?month=${month}&year=${year}`)
-                    setdata(data);
-                }
-                
-            }
         } else {
-            if (location!=="") {
-                if (fileType!=="") {
-                    const {data} = await axios.get(`${url}/file?month=${month}&location=${location}&fileType=${fileType}`)
+            if (fileType!=="") {
+                    const {data} = await axios.get(`${url}/get-filesByMonthFileType?location=${location}&fileType=${fileType}&month=${month}`)
                     setdata(data);
                 } else {
-                    const {data} = await axios.get(`${url}/file?month=${month}&location=${location}`)
+                    const {data} = await axios.get(`${url}/get-filesByMonth?location=${location}&month=${month}`)
                     setdata(data);
                 }
-                
-            } else {
-                if (fileType!=="") {
-                    const {data} = await axios.get(`${url}/file?month=${month}&fileType=${fileType}`)
-                    setdata(data);
-                } else {
-                    const {data} = await axios.get(`${url}/file?month=${month}`)
-                    setdata(data);
-                }
-                
-            }
         }
         
     } else {
-        if (year!=="") {
-            if (location!=="") {
+        if (year!==null) {
+          
                 if (fileType!=="") {
-                    const {data} = await axios.get(`${url}/file?year=${year}&location=${location}&fileType=${fileType}`)
+                    const {data} = await axios.get(`${url}/get-filesByYearFileType?location=${location}&fileType=${fileType}&year=${year}`)
                     setdata(data);
                 } else {
-                    const {data} = await axios.get(`${url}/file?year=${year}&location=${location}`)
+                    const {data} = await axios.get(`${url}/get-filesByYear?location=${location}&year=${year}`)
                     setdata(data);
                 }
                 
-            } else {
-                if (fileType!=="") {
-                    const {data} = await axios.get(`${url}/file?year=${year}&fileType=${fileType}`)
-                    setdata(data);
-                } else {
-                    const {data} = await axios.get(`${url}/file?year=${year}`)
-                    setdata(data);
-                }
-                
-            }
         } else {
-            if (location!=="") {
+          
                 if (fileType!=="") {
-                    const {data} = await axios.get(`${url}/file?location=${location}&fileType=${fileType}`)
+                    const {data} = await axios.get(`${url}/get-filesByFileType?location=${location}&fileType=${fileType}`)
                     setdata(data);
                 } else {
-                    const {data} = await axios.get(`${url}/file?location=${location}`)
+                    const {data} = await axios.get(`${url}/get-filesByLocation?location=${location}`)
                     console.log("hi");
                     // setdata(data=>data.filter(x=>x.location===location));
-                    setdata(data)
-                    
+                    setdata(data)    
                 }
                 
-            } else {
-                if (fileType!=="") {
-                    const {data} = await axios.get(`${url}/file?fileType=${fileType}`)
-                    setdata(data);
-                } 
-            }
+           
         }
         
     }
+        console.log("hi" ,data);
+    
 }
 
   return (
@@ -131,7 +97,7 @@ const CompanyFile = ({location}) => {
                 </Table.HeadCell>
             </Table.Head>
         <Table.Body className="divide-y">
-            {data.map(({id,month,year,name,fileType,location,formData})=>(
+            {data.map(({id,month,year,name,fileType,location,file})=>(
                 <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                  <Table.Cell className="whitespace-nowrap border-r-2 font-medium text-gray-900 dark:text-white">
                      {monthName[month]}-{year}
@@ -145,12 +111,14 @@ const CompanyFile = ({location}) => {
                  <Table.Cell>
                     {fileType}
                  </Table.Cell>
-                 <Table.Cell></Table.Cell>
+                 <Table.Cell>
+                 <Button onClick={()=>{setOpen(true);setFilePath(file);setFileName(name)}} >Download</Button>
+                 </Table.Cell>
                 </Table.Row>
             ))}  
         </Table.Body>
         </Table>
-        
+        <ViewModal open={open} fileName={fileName} file={filePath} setOpen={setOpen} />
     </div>
   )
 }
