@@ -1,6 +1,5 @@
 import { Button, Modal } from "flowbite-react";
 import React from "react";
-import PDFViewer from 'pdf-viewer-reactjs'
 
 
 
