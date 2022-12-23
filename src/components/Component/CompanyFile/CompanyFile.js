@@ -12,35 +12,40 @@ const CompanyFile = ({location}) => {
     const [filePath, setFilePath] = useState("");
     const [open, setOpen] = useState(false);
     const [fileName, setFileName] = useState("");
-  useEffect(() => {
-    // const fetching=async()=>{
+//   useEffect(() => {
+//     // const fetching=async()=>{
         
-    //     const {data} = await axios.get(`${url}/get-filesByLocation?location=${location}`)
-    //     setdata(data);
-    //     console.log(data);
+//     //     const {data} = await axios.get(`${url}/get-filesByLocation?location=${location}`)
+//     //     setdata(data);
+//     console.log("hi" ,data);
+//     //     console.log(data);
         
-    //   }
+//     //   }
       
-    //     fetching(); 
+//     //     fetching(); 
       
-  }, [location])
+//   }, [location])
   const handleSearch=async(month,year,fileType)=>{
     if (month!==null) {
         if (year!==null) {
             if (fileType!=="") {
                 const {data} = await axios.get(`${url}/get-filesBySearch?location=${location}&fileType=${fileType}&year=${year}&month=${month}`)
                     setdata(data);
+                    console.log("hi" ,data);
                 } else {
                     const {data} = await axios.get(`${url}/get-filesByYearMonth?location=${location}&year=${year}&month=${month}`)
                     setdata(data);
+                    console.log("hi" ,data);
                 }
         } else {
             if (fileType!=="") {
                     const {data} = await axios.get(`${url}/get-filesByMonthFileType?location=${location}&fileType=${fileType}&month=${month}`)
                     setdata(data);
+                    console.log("hi" ,data);
                 } else {
                     const {data} = await axios.get(`${url}/get-filesByMonth?location=${location}&month=${month}`)
                     setdata(data);
+                    console.log("hi" ,data);
                 }
         }
         
@@ -50,9 +55,11 @@ const CompanyFile = ({location}) => {
                 if (fileType!=="") {
                     const {data} = await axios.get(`${url}/get-filesByYearFileType?location=${location}&fileType=${fileType}&year=${year}`)
                     setdata(data);
+                    console.log("hi" ,data);
                 } else {
                     const {data} = await axios.get(`${url}/get-filesByYear?location=${location}&year=${year}`)
                     setdata(data);
+                    console.log("hi" ,data);
                 }
                 
         } else {
@@ -60,18 +67,20 @@ const CompanyFile = ({location}) => {
                 if (fileType!=="") {
                     const {data} = await axios.get(`${url}/get-filesByFileType?location=${location}&fileType=${fileType}`)
                     setdata(data);
+                    console.log("hi" ,data);
                 } else {
                     const {data} = await axios.get(`${url}/get-filesByLocation?location=${location}`)
                     console.log("hi");
                     // setdata(data=>data.filter(x=>x.location===location));
-                    setdata(data)    
+                    setdata(data);
+                    console.log("hi" ,data);
                 }
                 
            
         }
         
     }
-        console.log("hi" ,data);
+        
     
 }
 
