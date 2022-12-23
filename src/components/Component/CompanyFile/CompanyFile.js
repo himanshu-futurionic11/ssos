@@ -1,27 +1,27 @@
 import axios from 'axios'
 import { Button, Table } from 'flowbite-react'
 import React, { useEffect, useState } from 'react'
+import { url } from '../../../Utils/mockData'
 import ViewModal from '../../Modal/VeiwModal'
 
 import Filtering from '../Filtering/Filtering'
 
 const CompanyFile = ({location}) => {
-    const url = 'http://localhost:8900';
     const [monthName, setMonthName] = useState(["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]);
     const [data, setdata] = useState([]);
     const [filePath, setFilePath] = useState("");
     const [open, setOpen] = useState(false);
     const [fileName, setFileName] = useState("");
   useEffect(() => {
-    const fetching=async()=>{
+    // const fetching=async()=>{
         
-        const {data} = await axios.get(`${url}/get-filesByLocation?location=${location}`)
-        setdata(data);
-        console.log(data);
+    //     const {data} = await axios.get(`${url}/get-filesByLocation?location=${location}`)
+    //     setdata(data);
+    //     console.log(data);
         
-      }
+    //   }
       
-        fetching(); 
+    //     fetching(); 
       
   }, [location])
   const handleSearch=async(month,year,fileType)=>{

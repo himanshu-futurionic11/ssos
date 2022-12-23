@@ -1,13 +1,13 @@
 import { Button, Modal } from "flowbite-react";
 import React from "react";
+import { url } from "../../Utils/mockData";
 
 
 
 const ViewModal = ({ open, setOpen ,file,fileName}) => {
-  const  url= `http://localhost:8900/${file}`
   const onButtonClick = () => {
     // using Java Script method to get PDF file
-    fetch(url).then(response => {
+    fetch(`${url}/${file}`).then(response => {
         response.blob().then(blob => {
             // Creating new object of PDF file
             const fileURL = window.URL.createObjectURL(blob);

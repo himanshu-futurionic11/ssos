@@ -3,9 +3,10 @@ import { Button, Label } from 'flowbite-react';
 import { Formik } from 'formik';
 import React, { useState } from 'react'
 import ReactDatePicker from 'react-datepicker';
+import { url } from '../../../Utils/mockData';
 import { initialValues } from './const';
 
-const FileUpload = () => {
+const FileUpload = ({upload,setUpload}) => {
     const [location, setLocation] = useState('');
     const [yearName, setYearName] = useState(new Date());
     const [fileType, setFileType] = useState("");
@@ -29,7 +30,7 @@ const FileUpload = () => {
       formData.append("name",name);
       console.log(formData.entries().next().value[1].name);
   
-      const url = 'http://localhost:8900';
+
       const config = {
         headers: {
           'content-type': 'multipart/form-data',
@@ -39,11 +40,12 @@ const FileUpload = () => {
      axios.post(
         `${url}/add-files`,formData).then((res) => {
         console.log(res);
+        
       })
       .catch((err) => {
         console.log(err);
       });
-        
+      window.location.reload();
       
     }
   return (
@@ -128,7 +130,7 @@ const FileUpload = () => {
                         <div className="mt-10 text-center pb-10 pt-10 border-2">
                         <input type="file" id="file" name="file" accept="application/*" onChange={handleChange} />
                         </div>
-                        
+                        <div>{name} is Uploading</div>
                         <Button
                             className="mt-5 mb-5"
                             type="submit"

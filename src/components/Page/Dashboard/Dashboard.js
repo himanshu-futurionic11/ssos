@@ -1,5 +1,5 @@
 import { Label, Navbar, Sidebar } from 'flowbite-react';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ClientDetail from '../../Component/ClientDetail/ClientDetail';
@@ -10,7 +10,12 @@ import FileUpload from '../../Form/FileUpload/FileUpload';
 const Dashboard = () => {
   const isLogged=useSelector(state=>state.auth.isLogged)
   const [select, setSelect ] = useState(false);
+  const [upload, setUpload] = useState("");
   const [location, setLocation] = useState("");
+  useEffect(() => {
+    
+  }, [upload])
+  
   return (
     <div className='flex gap-4'>
       <SideBar setSelect={setSelect}/>
@@ -43,7 +48,7 @@ const Dashboard = () => {
           
       <ClientDetail location={location} />
       <CompanyFile location={location}/>
-      <FileUpload />
+      <FileUpload upload={upload} setUpload={setUpload} />
       </div>
     </div>
   )

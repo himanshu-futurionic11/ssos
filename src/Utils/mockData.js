@@ -346,3 +346,4 @@ export const hyderabadRowData=[
     detail:<Link className='text-teal-600'>AATCS3238G  View PDF</Link>,
   },
 ]
+export const url = 'ec2-13-233-244-196.ap-south-1.compute.amazonaws.com:8080';

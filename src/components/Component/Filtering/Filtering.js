@@ -17,11 +17,12 @@ const Filtering = ({handleSearch}) => {
   return (
     <div
     >
-      <div className=" grid grid-cols-5 gap-4 place-items-center mt-10 mb-10">
+      <div className=" grid grid-cols-7 gap-4 place-items-center mt-10 mb-10">
         
       <Label className="flex items-center gap-1">
             <span className="text-sm whitespace-nowrap">Filter by :</span>
             </Label>
+            <span>month</span>
           <div>
           <ReactDatePicker
             selected={month}
@@ -33,6 +34,7 @@ const Filtering = ({handleSearch}) => {
             showFullMonthYearPicker
           />
           </div>
+          <span>year</span>
           <div>
           <ReactDatePicker
             selected={year}
