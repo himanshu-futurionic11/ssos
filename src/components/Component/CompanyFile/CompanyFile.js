@@ -12,19 +12,18 @@ const CompanyFile = ({location}) => {
     const [filePath, setFilePath] = useState("");
     const [open, setOpen] = useState(false);
     const [fileName, setFileName] = useState("");
-//   useEffect(() => {
-//     // const fetching=async()=>{
+  useEffect(() => {
+    const fetching=async()=>{
         
-//     //     const {data} = await axios.get(`${url}/get-filesByLocation?location=${location}`)
-//     //     setdata(data);
-//     console.log("hi" ,data);
-//     //     console.log(data);
+        setdata([]);
+    // console.log("hi" ,data);
+    //     console.log(data);
         
-//     //   }
+      }
       
-//     //     fetching(); 
+        fetching(); 
       
-//   }, [location])
+  }, [location])
   const handleSearch=async(month,year,fileType)=>{
     if (month!==null) {
         if (year!==null) {
