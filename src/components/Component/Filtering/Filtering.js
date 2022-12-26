@@ -27,9 +27,14 @@ const Filtering = ({handleSearch}) => {
           <ReactDatePicker
             selected={month}
             className='mt-1 border-0 border-b-2 border-gray-200 '
-            onChange={(date) => {setMonth(date);setSearchMonth(date.getMonth())}}
+            onChange={(date) => {if (date) {
+              setMonth(date);setSearchMonth(date.getMonth())
+            } else {
+              setMonth(date);setSearchMonth(date)
+            }}}
             dateFormat="MM"
             placeholderText="Month"
+            isClearable={true}
             showMonthYearPicker
             showFullMonthYearPicker
           />
@@ -39,9 +44,16 @@ const Filtering = ({handleSearch}) => {
           <ReactDatePicker
             selected={year}
             className='mt-1 border-0 border-b-2 border-gray-200 '
-            onChange={(date) => {setYear(date);setSearchYear(date.getFullYear())}}
+            onChange={(date) => {if (date) {
+              setYear(date);setSearchYear(date.getFullYear())
+            } else {
+              setYear(date);setSearchYear(date)
+            }
+              }}
             dateFormat="yyyy"
             placeholderText="Year"
+            isClearable={true}
+          
             showYearPicker
             showFullYearPicker
           />

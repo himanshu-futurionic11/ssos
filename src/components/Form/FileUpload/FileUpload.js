@@ -45,8 +45,11 @@ const FileUpload = ({upload,setUpload}) => {
       .catch((err) => {
         console.log(err);
       });
-
-      // window.location.reload();
+    alert(`${name} is uploaded`)
+    window.location.reload();
+    //   setTimeout(function(){
+    //     window.location.reload();
+    //  }, 2000);
       
     }
   return (
@@ -67,14 +70,14 @@ const FileUpload = ({upload,setUpload}) => {
                   onSubmit={handleSubmit}   
                 >
                     <div
-                    className='h-40 pt-12'
+                    className='h-20 pt-12'
                     >
                         <h1   className="mb-4 text-xl text-center font-semibold text-black dark:text-gray-200 ">
                            Upload File 
                         </h1>
                     </div>
                     <div >
-                        <div className='grid grid-cols-6 gap-2 place-items-center mt-10 mb-10'>
+                        <div className='grid grid-cols-6 gap-2 place-items-center mt-5  mb-10'>
                         <select
                             id="underline_select"
                             value={location}
@@ -131,7 +134,6 @@ const FileUpload = ({upload,setUpload}) => {
                         <div className="mt-10 text-center pb-10 pt-10 border-2">
                         <input type="file" id="file" name="file" accept="application/*" onChange={handleChange} />
                         </div>
-                        <div>{name} is Uploading</div>
                         <Button
                             className="mt-5 mb-5"
                             type="submit"
