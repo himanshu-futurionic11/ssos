@@ -11,7 +11,7 @@ const ClientList = () => {
           <div className="max-w-xs  p-0">
             <Card 
                 imgAlt="Meaningful alt text w-1/3 for an image that is not purely decorative"
-                href='/login'
+                href={d.href}
                 style={{height:"400px",marginBottom:'50px'}}
                 imgSrc={d.imsrc}
                 >
