@@ -1,12 +1,14 @@
 import axios from 'axios'
 import { Button, Table } from 'flowbite-react'
 import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 import { url } from '../../../Utils/mockData'
 import ViewModal from '../../Modal/VeiwModal'
 
 import Filtering from '../Filtering/Filtering'
 
 const CompanyFile = ({location}) => {
+    const {userInfo}=useSelector(state=>state.auth.userInfo)
     const [monthName, setMonthName] = useState(["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]);
     const [data, setdata] = useState([]);
     const [filePath, setFilePath] = useState("");
@@ -105,7 +107,7 @@ const CompanyFile = ({location}) => {
                 </Table.HeadCell>
             </Table.Head>
         <Table.Body className="divide-y">
-            {data.map(({id,month,year,name,fileType,location,file})=>(
+            {(userInfo==="cariot" || userInfo==="admin") &&data.map(({id,month,year,name,fileType,location,file})=>(
                 <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                  <Table.Cell className="whitespace-nowrap border-r-2 font-medium text-gray-900 dark:text-white">
                      {monthName[month]}-{year}

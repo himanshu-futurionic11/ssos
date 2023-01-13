@@ -3,6 +3,7 @@ import { Field, Formik } from 'formik'
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router'
+import { adminLoginActions } from '../../../Store/Admin-slice'
 import {  loginActions } from '../../../Store/Auth-Slice'
 import { data } from './const'
 
@@ -12,8 +13,13 @@ const Login = () => {
     const handleSubmit=(values)=>{
         console.log(values);
         if(values.userName==="admin" && values.password==="admin"){
-            dispatch(loginActions.login())
+            dispatch(loginActions.login({userInfo:"admin"}))
+            dispatch(adminLoginActions.login())
             naviagte('/dashboard', { replace: true });
+        }
+        if (values.userName==="cariot" && values.password==="1c4Rit27%") {
+          dispatch(loginActions.login({userInfo:"cariot"}))
+          naviagte('/dashboard', { replace: true });
         }
         
        

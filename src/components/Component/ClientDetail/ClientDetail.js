@@ -1,9 +1,11 @@
 import { Table } from 'flowbite-react'
 import React from 'react'
+import { useSelector } from 'react-redux';
 import { delhiRowData,hyderabadRowData } from "../../../Utils/mockData";
 
 
 const ClientDetail = ({location}) => {
+    const {userInfo}=useSelector(state=>state.auth.userInfo)
   return (
     <div>
         <Table striped={true} className='border-2 mb-20' >
@@ -16,7 +18,8 @@ const ClientDetail = ({location}) => {
                 </Table.HeadCell>
             </Table.Head>
         <Table.Body className="divide-y">
-            {(location==="Delhi") && delhiRowData.map(({id,heading,detail})=>(
+            
+            {(userInfo==="cariot" || userInfo==="admin") && (location==="Delhi") && delhiRowData.map(({id,heading,detail})=>(
                 <Table.Row id={id} className="bg-white dark:border-gray-700 dark:bg-gray-800">
                  <Table.Cell id={id} className="whitespace-nowrap border-r-2 w-1/2 font-medium text-gray-900 dark:text-white">
                      {heading}
@@ -26,7 +29,7 @@ const ClientDetail = ({location}) => {
                  </Table.Cell>
                 </Table.Row>
             ))}  
-            {(location==="Hyderabad") && hyderabadRowData.map(({id,heading,detail})=>(
+            {(userInfo==="cariot" || userInfo==="admin") && (location==="Hyderabad") && hyderabadRowData.map(({id,heading,detail})=>(
                 <Table.Row id={id} className="bg-white dark:border-gray-700 dark:bg-gray-800">
                  <Table.Cell id={id} className="whitespace-nowrap border-r-2 w-1/2 font-medium text-gray-900 dark:text-white">
                      {heading}

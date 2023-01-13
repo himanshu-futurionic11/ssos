@@ -8,7 +8,7 @@ import SideBar from '../../Component/SideBar/SideBar';
 import FileUpload from '../../Form/FileUpload/FileUpload';
 
 const Dashboard = () => {
-  const isLogged=useSelector(state=>state.auth.isLogged)
+  const isAdminLogged=useSelector(state=>state.admin.isAdminLogged)
   const [select, setSelect ] = useState(false);
   const [upload, setUpload] = useState("");
   const [location, setLocation] = useState("");
@@ -48,7 +48,7 @@ const Dashboard = () => {
           
       <ClientDetail location={location} />
       <CompanyFile location={location}/>
-      <FileUpload upload={upload} setUpload={setUpload} />
+      {isAdminLogged && <FileUpload upload={upload} setUpload={setUpload} />}
       </div>
     </div>
   )

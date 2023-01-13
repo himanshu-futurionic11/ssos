@@ -21,27 +21,9 @@ const Menu = () => {
   </div>
   <Navbar.Collapse>
     <Navbar.Link
-    href='/dashboard'
+    href='/mainsite'
     >
       Home
-    </Navbar.Link>
-    <Navbar.Link >
-      About Us
-    </Navbar.Link>
-    <Navbar.Link >
-      Services
-    </Navbar.Link>
-    <Navbar.Link >
-      Clients
-    </Navbar.Link>
-    <Navbar.Link href=''>
-      Compliance
-    </Navbar.Link>
-    <Navbar.Link>
-      Career
-    </Navbar.Link>
-    <Navbar.Link >
-      Contact Us
     </Navbar.Link>
   </Navbar.Collapse>
 </Navbar>

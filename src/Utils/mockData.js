@@ -188,57 +188,57 @@ export const delhiRowData=[
   {
     id:12,
     heading:'Registration Certificate No. of PE / Contractor Labour License No. and valid up to',
-    detail:<Link className='text-teal-600'>PSA/REG/GGN/DIC-GGN-I/0011775   View PDF</Link>,
+    detail:<Link className='text-teal-600'>PSA/REG/GGN/DIC-GGN-I/0011775 </Link>,
   },
   {
     id:13,
     heading:'Registration No. under the Registration Act, 1908',
-    detail:<Link className='text-teal-600'>N/A   View PDF</Link>,
+    detail:<Link className='text-teal-600'>N/A </Link>,
   },
   {
     id:14,
     heading:'Registration No. under Partnership Act, 1932',
-    detail:<Link className='text-teal-600'>N/A   View PDF</Link>,
+    detail:<Link className='text-teal-600'>N/A </Link>,
   },
   {
     id:15,
     heading:'Registration No. under the Companies Act, 1956',
-    detail:<Link className='text-teal-600'>N/A   View PDF</Link>,
+    detail:<Link className='text-teal-600'>N/A </Link>,
   },
   {
     id:16,
     heading:'Registration No. under the Delhi Shop & Establishment Act, 1954',
-    detail:<Link className='text-teal-600'>PSA/REG/GGN/LI-GGN-3-7/0171010  View PDF</Link>,
+    detail:<Link className='text-teal-600'>PSA/REG/GGN/LI-GGN-3-7/0171010</Link>,
   },
   {
     id:17,
     heading:'Registration No. under the Factofories Act ( for PE)',
-    detail:<Link className='text-teal-600'>N/A   View PDF</Link>,
+    detail:<Link className='text-teal-600'>N/A </Link>,
   },
   {
     id:18,
     heading:'Registration No. or Employes ESIC Act, 1948',
-    detail:<Link className='text-teal-600'>69000530840001001  View PDF</Link>,
+    detail:<Link className='text-teal-600'>69000530840001001</Link>,
   },
   {
     id:19,
     heading:'Registration No. EPF and Misc. Provisions Act, 1952',
-    detail:<Link className='text-teal-600'>GNGGN0033453000  View PDF</Link>,
+    detail:<Link className='text-teal-600'>GNGGN0033453000</Link>,
   },
   {
     id:20,
     heading:'Service Tax Registration No',
-    detail:<Link className='text-teal-600'>AATCS3238GSD001  View PDF</Link>,
+    detail:<Link className='text-teal-600'>AATCS3238GSD001</Link>,
   },
   {
     id:21,
     heading:'Sale Tax Registration No.  ',
-    detail:<Link className='text-teal-600'>06551950852  View PDF</Link>,
+    detail:<Link className='text-teal-600'>06551950852</Link>,
   },
   {
     id:22,
     heading:'PAN Card No.',
-    detail:<Link className='text-teal-600'>AATCS3238G  View PDF</Link>,
+    detail:<Link className='text-teal-600'>AATCS3238G</Link>,
   },
 ]
 export const hyderabadRowData=[
@@ -300,57 +300,57 @@ export const hyderabadRowData=[
   {
     id:12,
     heading:'Registration Certificate No. of PE / Contractor Labour License No. and valid up to',
-    detail:<Link className='text-teal-600'>PSA/REG/GGN/DIC-GGN-I/0011775   View PDF</Link>,
+    detail:<Link className='text-teal-600'>PSA/REG/GGN/DIC-GGN-I/0011775 </Link>,
   },
   {
     id:13,
     heading:'Registration No. under the Registration Act, 1908',
-    detail:<Link className='text-teal-600'>N/A   View PDF</Link>,
+    detail:<Link className='text-teal-600'>N/A </Link>,
   },
   {
     id:14,
     heading:'Registration No. under Partnership Act, 1932',
-    detail:<Link className='text-teal-600'>N/A   View PDF</Link>,
+    detail:<Link className='text-teal-600'>N/A </Link>,
   },
   {
     id:15,
     heading:'Registration No. under the Companies Act, 1956',
-    detail:<Link className='text-teal-600'>N/A   View PDF</Link>,
+    detail:<Link className='text-teal-600'>N/A </Link>,
   },
   {
     id:16,
     heading:'Registration No. under the Delhi Shop & Establishment Act, 1954',
-    detail:<Link className='text-teal-600'>PSA/REG/GGN/LI-GGN-3-7/0171010  View PDF</Link>,
+    detail:<Link className='text-teal-600'>PSA/REG/GGN/LI-GGN-3-7/0171010</Link>,
   },
   {
     id:17,
     heading:'Registration No. under the Factofories Act ( for PE)',
-    detail:<Link className='text-teal-600'>N/A   View PDF</Link>,
+    detail:<Link className='text-teal-600'>N/A </Link>,
   },
   {
     id:18,
     heading:'Registration No. or Employes ESIC Act, 1948',
-    detail:<Link className='text-teal-600'>69000530840001001  View PDF</Link>,
+    detail:<Link className='text-teal-600'>69000530840001001</Link>,
   },
   {
     id:19,
     heading:'Registration No. EPF and Misc. Provisions Act, 1952',
-    detail:<Link className='text-teal-600'>GNGGN0033453000  View PDF</Link>,
+    detail:<Link className='text-teal-600'>GNGGN0033453000</Link>,
   },
   {
     id:20,
     heading:'Service Tax Registration No',
-    detail:<Link className='text-teal-600'>AATCS3238GSD001  View PDF</Link>,
+    detail:<Link className='text-teal-600'>AATCS3238GSD001</Link>,
   },
   {
     id:21,
     heading:'Sale Tax Registration No.  ',
-    detail:<Link className='text-teal-600'>06551950852  View PDF</Link>,
+    detail:<Link className='text-teal-600'>06551950852</Link>,
   },
   {
     id:22,
     heading:'PAN Card No.',
-    detail:<Link className='text-teal-600'>AATCS3238G  View PDF</Link>,
+    detail:<Link className='text-teal-600'>AATCS3238G</Link>,
   },
 ]
 export const url = 'http://ec2-13-233-244-196.ap-south-1.compute.amazonaws.com:8080';
