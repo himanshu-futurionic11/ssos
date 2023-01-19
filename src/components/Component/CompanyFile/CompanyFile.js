@@ -8,7 +8,7 @@ import ViewModal from '../../Modal/VeiwModal'
 import Filtering from '../Filtering/Filtering'
 
 const CompanyFile = ({location}) => {
-    const {userInfo}=useSelector(state=>state.auth.userInfo)
+    const {userInfo,userId}=useSelector(state=>state.auth)
     const [monthName, setMonthName] = useState(["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]);
     const [data, setdata] = useState([]);
     const [filePath, setFilePath] = useState("");
@@ -16,7 +16,6 @@ const CompanyFile = ({location}) => {
     const [fileName, setFileName] = useState("");
   useEffect(() => {
     const fetching=async()=>{
-        
         setdata([]);
     // console.log("hi" ,data);
     //     console.log(data);
@@ -30,21 +29,21 @@ const CompanyFile = ({location}) => {
     if (month!==null) {
         if (year!==null) {
             if (fileType!=="") {
-                const {data} = await axios.get(`${url}/get-filesBySearch?location=${location}&fileType=${fileType}&year=${year}&month=${month}`)
+                const {data} = await axios.get(`${url}/get-filesBySearch?location=${location}&fileType=${fileType}&year=${year}&month=${month}&clientId=${userId}`)
                     setdata(data);
                     console.log("hi" ,data);
                 } else {
-                    const {data} = await axios.get(`${url}/get-filesByYearMonth?location=${location}&year=${year}&month=${month}`)
+                    const {data} = await axios.get(`${url}/get-filesByYearMonth?location=${location}&year=${year}&month=${month}&clientId=${userId}`)
                     setdata(data);
                     console.log("hi" ,data);
                 }
         } else {
             if (fileType!=="") {
-                    const {data} = await axios.get(`${url}/get-filesByMonthFileType?location=${location}&fileType=${fileType}&month=${month}`)
+                    const {data} = await axios.get(`${url}/get-filesByMonthFileType?location=${location}&fileType=${fileType}&month=${month}&clientId=${userId}`)
                     setdata(data);
                     console.log("hi" ,data);
                 } else {
-                    const {data} = await axios.get(`${url}/get-filesByMonth?location=${location}&month=${month}`)
+                    const {data} = await axios.get(`${url}/get-filesByMonth?location=${location}&month=${month}&clientId=${userId}`)
                     setdata(data);
                     console.log("hi" ,data);
                 }
@@ -54,11 +53,11 @@ const CompanyFile = ({location}) => {
         if (year!==null) {
           
                 if (fileType!=="") {
-                    const {data} = await axios.get(`${url}/get-filesByYearFileType?location=${location}&fileType=${fileType}&year=${year}`)
+                    const {data} = await axios.get(`${url}/get-filesByYearFileType?location=${location}&fileType=${fileType}&year=${year}&clientId=${userId}`)
                     setdata(data);
                     console.log("hi" ,data);
                 } else {
-                    const {data} = await axios.get(`${url}/get-filesByYear?location=${location}&year=${year}`)
+                    const {data} = await axios.get(`${url}/get-filesByYear?location=${location}&year=${year}&clientId=${userId}`)
                     setdata(data);
                     console.log("hi" ,data);
                 }
@@ -66,11 +65,11 @@ const CompanyFile = ({location}) => {
         } else {
           
                 if (fileType!=="") {
-                    const {data} = await axios.get(`${url}/get-filesByFileType?location=${location}&fileType=${fileType}`)
+                    const {data} = await axios.get(`${url}/get-filesByFileType?location=${location}&fileType=${fileType}&clientId=${userId}`)
                     setdata(data);
                     console.log("hi" ,data);
                 } else {
-                    const {data} = await axios.get(`${url}/get-filesByLocation?location=${location}`)
+                    const {data} = await axios.get(`${url}/get-filesByLocation?location=${location}&clientId=${userId}`)
                     console.log("hi");
                     // setdata(data=>data.filter(x=>x.location===location));
                     setdata(data);
@@ -107,7 +106,7 @@ const CompanyFile = ({location}) => {
                 </Table.HeadCell>
             </Table.Head>
         <Table.Body className="divide-y">
-            {(userInfo==="cariot" || userInfo==="admin") &&data.map(({id,month,year,name,fileType,location,file})=>(
+            {data.map(({id,month,year,name,fileType,location,file})=>(
                 <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                  <Table.Cell className="whitespace-nowrap border-r-2 font-medium text-gray-900 dark:text-white">
                      {monthName[month]}-{year}

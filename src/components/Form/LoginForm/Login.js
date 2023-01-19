@@ -1,26 +1,53 @@
 import { Button } from 'flowbite-react'
 import { Field, Formik } from 'formik'
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router'
 import { adminLoginActions } from '../../../Store/Admin-slice'
 import {  loginActions } from '../../../Store/Auth-Slice'
 import { data } from './const'
 
 const Login = () => {
+  const {  userInfo, userId } = useSelector(
+    (state) => state.auth
+  );
     const dispatch=useDispatch()
     const naviagte=useNavigate()
     const handleSubmit=(values)=>{
         console.log(values);
         if(values.userName==="admin" && values.password==="admin"){
-            dispatch(loginActions.login({userInfo:"admin"}))
+            dispatch(loginActions.login())
             dispatch(adminLoginActions.login())
             naviagte('/dashboard', { replace: true });
         }
-        if (values.userName==="cariot" && values.password==="1c4Rit27%") {
-          dispatch(loginActions.login({userInfo:"cariot"}))
+        if (values.userName===userInfo && values.password==="1c4Rit27%") {
+          dispatch(loginActions.login())
           naviagte('/dashboard', { replace: true });
         }
+        if (values.userName===userInfo ) {
+          dispatch(loginActions.login())
+          naviagte('/dashboard', { replace: true });
+        }
+        // if (values.userName===userInfo && values.password==="%") {
+        //   dispatch(loginActions.login())
+        //   naviagte('/dashboard', { replace: true });
+        // }
+        // if (values.userName===userInfo && values.password==="%") {
+        //   dispatch(loginActions.login())
+        //   naviagte('/dashboard', { replace: true });
+        // }
+        // if (values.userName===userInfo && values.password==="%") {
+        //   dispatch(loginActions.login())
+        //   naviagte('/dashboard', { replace: true });
+        // }
+        // if (values.userName===userInfo && values.password==="%") {
+        //   dispatch(loginActions.login())
+        //   naviagte('/dashboard', { replace: true });
+        // }
+        // if (values.userName===userInfo && values.password==="%") {
+        //   dispatch(loginActions.login())
+        //   naviagte('/dashboard', { replace: true });
+        // }
         
        
       }

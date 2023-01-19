@@ -3,10 +3,12 @@ import { Button, Label } from 'flowbite-react';
 import { Formik } from 'formik';
 import React, { useState } from 'react'
 import ReactDatePicker from 'react-datepicker';
+import { useSelector } from 'react-redux';
 import { url } from '../../../Utils/mockData';
 import { initialValues } from './const';
 
 const FileUpload = ({upload,setUpload}) => {
+  const {userInfo,userId}=useSelector(state=>state.auth)
     const [location, setLocation] = useState('');
     const [yearName, setYearName] = useState(new Date());
     const [fileType, setFileType] = useState("");
@@ -23,6 +25,7 @@ const FileUpload = ({upload,setUpload}) => {
 
     const handleSubmit=async()=>{
       formData.append("file",file);
+      formData.append("clientId",userId);
       formData.append("location",location);
       formData.append("fileType",fileType);
       formData.append("month",monthName.getMonth());

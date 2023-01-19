@@ -5,7 +5,7 @@ import { delhiRowData,hyderabadRowData } from "../../../Utils/mockData";
 
 
 const ClientDetail = ({location}) => {
-    const {userInfo}=useSelector(state=>state.auth.userInfo)
+    const {userInfo,userId}=useSelector(state=>state.auth)
   return (
     <div>
         <Table striped={true} className='border-2 mb-20' >
@@ -19,7 +19,7 @@ const ClientDetail = ({location}) => {
             </Table.Head>
         <Table.Body className="divide-y">
             
-            {(userInfo==="cariot" || userInfo==="admin") && (location==="Delhi") && delhiRowData.map(({id,heading,detail})=>(
+            {(userInfo==="cariot") && (location==="Delhi") && delhiRowData.map(({id,heading,detail})=>(
                 <Table.Row id={id} className="bg-white dark:border-gray-700 dark:bg-gray-800">
                  <Table.Cell id={id} className="whitespace-nowrap border-r-2 w-1/2 font-medium text-gray-900 dark:text-white">
                      {heading}
@@ -29,7 +29,7 @@ const ClientDetail = ({location}) => {
                  </Table.Cell>
                 </Table.Row>
             ))}  
-            {(userInfo==="cariot" || userInfo==="admin") && (location==="Hyderabad") && hyderabadRowData.map(({id,heading,detail})=>(
+            {(userInfo==="cariot") && (location==="Hyderabad") && hyderabadRowData.map(({id,heading,detail})=>(
                 <Table.Row id={id} className="bg-white dark:border-gray-700 dark:bg-gray-800">
                  <Table.Cell id={id} className="whitespace-nowrap border-r-2 w-1/2 font-medium text-gray-900 dark:text-white">
                      {heading}

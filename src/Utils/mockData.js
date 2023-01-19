@@ -88,45 +88,43 @@ export const clientData=[
     id:1,
     title:'CARIOT AUTO PRIVATE LIMITED',
     imsrc:'https://media-exp1.licdn.com/dms/image/C4E0BAQE-va7qFT0xSQ/company-logo_100_100/0/1519905860932?e=2147483647&v=beta&t=laGajkYZRUL_52hn4x7Vogopd77gc_6Pw4FOH_KSf7o',
-    href:'/login'
-  },
-  {
-    id:7,
-    title:'AVERY DENNISON (INDIA) PRIVATE LIMITED',
-    imsrc:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRafVuqH4TIAe1PK-zKMCodD9hFoh3ERM_lAPATJ5wGT2Q4Rz7D7jwCi2hVBTAewrGjjS4&usqp=CAU",
-    href:''
+    name:'cariot'
   },
   {
     id:2,
-    title:'CARS24 SERVICES PRIVATE LIMITED',
-    imsrc:'https://upload.wikimedia.org/wikipedia/commons/5/5f/Cars24logo.png',
-    href:''
+    title:'AVERY DENNISON (INDIA) PRIVATE LIMITED',
+    imsrc:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRafVuqH4TIAe1PK-zKMCodD9hFoh3ERM_lAPATJ5wGT2Q4Rz7D7jwCi2hVBTAewrGjjS4&usqp=CAU",
+    name:'avery'
   },
   {
     id:3,
-    title:'GUARDIAN INDIA OPERATIONS PRIVATE LIMITED',
-    imsrc:'https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/256x256/198d722eeb819f982dc02f3892a1bc36',
-    href:''
+    title:'CARS24 SERVICES PRIVATE LIMITED',
+    imsrc:'https://upload.wikimedia.org/wikipedia/commons/5/5f/Cars24logo.png',
+    name:'cars24'
   },
   {
     id:4,
-    title:'UNIMRKT RESEARCH PRIVATE LIMITED',
-    imsrc:'https://www.unimrkt.com/images/logo.png',
-    href:''
+    title:'GUARDIAN INDIA OPERATIONS PRIVATE LIMITED',
+    imsrc:'https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/256x256/198d722eeb819f982dc02f3892a1bc36',
+    name:'guardian'
   },
   {
     id:5,
-    title:'YATRA ONLINE PRIVATE LIMITED',
-    imsrc:'https://mma.prnewswire.com/media/512422/Yatra_Online__Inc_Logo.jpg',
-    href:''
+    title:'UNIMRKT RESEARCH PRIVATE LIMITED',
+    imsrc:'https://www.unimrkt.com/images/logo.png',
+    name:'unimrkt'
   },
-  
-  
   {
     id:6,
+    title:'YATRA ONLINE PRIVATE LIMITED',
+    imsrc:'https://mma.prnewswire.com/media/512422/Yatra_Online__Inc_Logo.jpg',
+    name:'yatra'
+  },
+  {
+    id:7,
     title:'TEOCO SOFTWARE PRIVATE LIMITED',
     imsrc:'https://media.glassdoor.com/sqll/12167/teoco-squarelogo-1389051005880.png',
-    href:''
+    name:'teoco'
   },
 ]
 export const delhiRowData=[
