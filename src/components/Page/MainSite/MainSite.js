@@ -6,8 +6,8 @@ import HomePage from '../Home/HomePage'
 const MainSite = () => {
   return (
     <div>
-        <Menu/>
-   <Header/>
+        {/* <Menu/> */}
+   {/* <Header/> */}
    <HomePage/>
     </div>
   )

@@ -117,7 +117,7 @@ export const clientData=[
   {
     id:6,
     title:'YATRA ONLINE PRIVATE LIMITED',
-    imsrc:'https://mma.prnewswire.com/media/512422/Yatra_Online__Inc_Logo.jpg',
+    imsrc:'https://mma.psjewswire.com/media/512422/Yatra_Online__Inc_Logo.jpg',
     name:'yatra'
   },
   {
@@ -156,7 +156,7 @@ export const delhiRowData=[
   {
     id:6,
     heading:'Name of the Proprietor / Partner/ Director / Managing Director',
-    detail:'Mr. Ram Niwas Yadav',
+    detail:'Ms. Soni',
   },
   {
     id:7,
@@ -268,7 +268,7 @@ export const hyderabadRowData=[
   {
     id:6,
     heading:'Name of the Proprietor / Partner/ Director / Managing Director',
-    detail:'Mr. Ram Niwas Yadav',
+    detail:'Ms. Soni',
   },
   {
     id:7,
@@ -288,7 +288,7 @@ export const hyderabadRowData=[
   {
     id:10,
     heading:'E-mail ID of PE / Contractor',
-    detail:<Link className='text-teal-600'>rn@ssos.co.in</Link>,
+    detail:<Link className='text-teal-600'>sj@ssos.co.in</Link>,
   },
   {
     id:11,
@@ -351,4 +351,5 @@ export const hyderabadRowData=[
     detail:<Link className='text-teal-600'>AATCS3238G</Link>,
   },
 ]
-export const url = 'http://ec2-13-233-244-196.ap-south-1.compute.amazonaws.com:8080';
+export const url = 'https://ssos-compliance.onrender.com';
+// export const url = 'http://localhost:4000';

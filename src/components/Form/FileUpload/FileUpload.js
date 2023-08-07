@@ -24,6 +24,7 @@ const FileUpload = ({upload,setUpload}) => {
      }
 
     const handleSubmit=async()=>{
+      console.log(userId);
       formData.append("file",file);
       formData.append("clientId",userId);
       formData.append("location",location);
@@ -49,7 +50,7 @@ const FileUpload = ({upload,setUpload}) => {
         console.log(err);
       });
     alert(`${name} is uploaded`)
-    window.location.reload();
+    // window.location.reload();
     //   setTimeout(function(){
     //     window.location.reload();
     //  }, 2000);

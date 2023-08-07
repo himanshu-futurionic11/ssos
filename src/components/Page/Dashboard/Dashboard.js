@@ -1,7 +1,9 @@
 import { Label, Navbar, Sidebar } from 'flowbite-react';
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { adminLoginActions } from '../../../Store/Admin-slice';
+import { loginActions } from '../../../Store/Auth-Slice';
 import ClientDetail from '../../Component/ClientDetail/ClientDetail';
 import CompanyFile from '../../Component/CompanyFile/CompanyFile';
 import SideBar from '../../Component/SideBar/SideBar';
@@ -9,6 +11,7 @@ import FileUpload from '../../Form/FileUpload/FileUpload';
 
 const Dashboard = () => {
   const isAdminLogged=useSelector(state=>state.admin.isAdminLogged)
+  const dispatch=useDispatch()
   const [select, setSelect ] = useState(false);
   const [upload, setUpload] = useState("");
   const [location, setLocation] = useState("");
@@ -27,7 +30,7 @@ const Dashboard = () => {
         >
           <Navbar.Collapse></Navbar.Collapse>
       <div className="flex justify-end ">
-        <Link className='text-cyan-700 flex justify-end' to='/'>Logout</Link>
+        <Link className='text-cyan-700 flex justify-end' to='/' onClick={()=>{dispatch(loginActions.logout());dispatch(adminLoginActions.logout())}}>Logout</Link>
       </div>
     </Navbar>
    

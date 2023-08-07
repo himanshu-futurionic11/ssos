@@ -14,6 +14,7 @@ const ClientList = () => {
     const clientfetching=async()=>{
       const {data}= await axios.get(`${url}/get-clients`)
       setData(data)
+      console.log(data);
     }
     clientfetching()
   }, [])
